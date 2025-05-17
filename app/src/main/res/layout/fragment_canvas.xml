@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/canvasImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/textOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Text"
+        android:textColor="#FF000000"
+        android:textSize="24sp"
+        android:layout_gravity="bottom|start"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#AAFFFFFF"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/editTextBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Edit Text"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/styleBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Style"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/exportBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Export"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</FrameLayout>
