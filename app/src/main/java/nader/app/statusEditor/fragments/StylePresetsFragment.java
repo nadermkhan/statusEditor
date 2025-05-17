@@ -17,25 +17,6 @@ import nader.app.statusEditor.adapter.StylePresetAdapter;
 import nader.app.statusEditor.model.StylePreset;
 import nader.app.statusEditor.viewmodel.SharedViewModel;
 
-public class StylePresetsFragment extends Fragment package nader.app.statusEditor.fragments;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import nader.app.statusEditor.R;
-import nader.app.statusEditor.adapter.StylePresetAdapter;
-import nader.app.statusEditor.model.StylePreset;
-import nader.app.statusEditor.viewmodel.SharedViewModel;
-
 public class StylePresetsFragment extends Fragment {
 
     private SharedViewModel viewModel;
