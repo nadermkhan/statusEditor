@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+import nader.app.statusEditor.R;
 import java.util.List;
 
 // Replace with your actual package for StylePreset

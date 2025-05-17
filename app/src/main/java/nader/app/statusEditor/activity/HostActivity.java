@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import nader.app.statusEditor.R;
 
 // Replace this with your actual package name where ImagePickerFragment is defined
 import nader.app.statusEditor.fragments.ImagePickerFragment;
