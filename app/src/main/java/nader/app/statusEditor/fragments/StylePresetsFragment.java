@@ -41,7 +41,7 @@ public class StylePresetsFragment extends Fragment {
                 requireContext(),
                 viewModel.getStylePresets(),
                 style -> {
-                    viewModel.setTextColor(style.getTextColor());
+                    viewModel.setTextColor(style.getColor());
                     viewModel.setFont(style.getFontPath());
                 });
 
