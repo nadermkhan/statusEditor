@@ -4,7 +4,7 @@ public class StylePreset {
     private final String name;
     private final int typefaceStyle;
     private final int color;
-    private final String fontPath; // Path is needed :)
+    private final String fontPath;
 
     public StylePreset(String name, int typefaceStyle, int color, String fontPath) {
         this.name = name;

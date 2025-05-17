@@ -18,7 +18,7 @@ import nader.app.statusEditor.model.StylePreset;
 public class StylePresetAdapter extends RecyclerView.Adapter<StylePresetAdapter.StyleViewHolder> {
 
     public interface OnStyleSelectedListener {
-        void onStyleSelected(String fontPath, int color);
+        void onStyleSelected(StylePreset preset); // Updated to pass the whole object
     }
 
     private final Context context;
@@ -59,8 +59,7 @@ public class StylePresetAdapter extends RecyclerView.Adapter<StylePresetAdapter.
         holder.sampleText.setText(preset.getName());
 
         // Handle selection
-        holder.itemView.setOnClickListener(v ->
-                listener.onStyleSelected(preset.getFontPath(), preset.getColor()));
+        holder.itemView.setOnClickListener(v -> listener.onStyleSelected(preset)); // Updated
     }
 
     @Override
