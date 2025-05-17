@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+import nader.app.statusEditor.R;
 import nader.app.statusEditor.activity.HostActivity;
 import nader.app.statusEditor.fragments.*;
 import nader.app.statusEditor.viewmodel.SharedViewModel;

@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+import nader.app.statusEditor.R;
 // Replace these with your actual package paths
 import nader.app.statusEditor.activity.HostActivity;
 import nader.app.statusEditor.fragments.CanvasFragment;

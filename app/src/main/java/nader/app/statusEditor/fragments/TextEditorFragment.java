@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-
+import nader.app.statusEditor.R;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import nader.app.statusEditor.fragments.*;
 
 import nader.app.statusEditor.viewmodel.SharedViewModel;
 

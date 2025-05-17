@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+import nader.app.statusEditor.R;
 public class ExportFragment extends Fragment {
 	@Nullable
 	@Override
