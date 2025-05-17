@@ -1,5 +1,8 @@
 package nader.app.statusEditor.fragments;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,47 +10,51 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.bumptech.glide.Glide;
+
 import nader.app.statusEditor.R;
-import nader.app.statusEditor.activity.HostActivity;
-import nader.app.statusEditor.fragments.*;
 import nader.app.statusEditor.viewmodel.SharedViewModel;
 
 public class CanvasFragment extends Fragment {
-	private ImageView imageView;
-	private TextView textOverlay;
-	
-	@Nullable
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-	Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_canvas, container, false);
-		imageView = view.findViewById(R.id.canvasImage);
-		textOverlay = view.findViewById(R.id.textOverlay);
-		
-		SharedViewModel.getInstance().getImageUri().observe(getViewLifecycleOwner(), uri -> {
-			if (uri != null) {
-				imageView.setImageURI(uri);
-			}
-		});
-		
-		view.findViewById(R.id.editTextBtn).setOnClickListener(v ->
-		((HostActivity) requireActivity()).openFragment(new TextEditorFragment())
-		);
-		
-		view.findViewById(R.id.styleBtn).setOnClickListener(v ->
-		((HostActivity) requireActivity()).openFragment(new StylePresetsFragment())
-		);
-		
-		view.findViewById(R.id.exportBtn).setOnClickListener(v ->
-		((HostActivity) requireActivity()).openFragment(new ExportFragment())
-		);
-		
-		SharedViewModel.getInstance().getText().observe(getViewLifecycleOwner(), text -> {
-			textOverlay.setText(text);
-		});
-		
-		return view;
-	}
+
+    private SharedViewModel viewModel;
+    private ImageView imageView;
+    private TextView textView;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_canvas, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
+        imageView = view.findViewById(R.id.image_view);
+        textView = view.findViewById(R.id.canvas_text);
+
+        viewModel.getImageUri().observe(getViewLifecycleOwner(), uri -> {
+            if (uri != null) {
+                Glide.with(this).load(uri).into(imageView);
+            }
+        });
+
+        viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        viewModel.getTextColor().observe(getViewLifecycleOwner(), textView::setTextColor);
+        viewModel.getFontPath().observe(getViewLifecycleOwner(), path -> {
+            if (path != null) {
+                Typeface typeface = Typeface.createFromAsset(requireContext().getAssets(), path);
+                textView.setTypeface(typeface);
+            }
+        });
+    }
 }
