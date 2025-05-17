@@ -4,11 +4,13 @@ public class StylePreset {
     private final String name;
     private final int typefaceStyle;
     private final int color;
+    private final String fontPath; // Path is needed :)
 
-    public StylePreset(String name, int typefaceStyle, int color) {
+    public StylePreset(String name, int typefaceStyle, int color, String fontPath) {
         this.name = name;
         this.typefaceStyle = typefaceStyle;
         this.color = color;
+        this.fontPath = fontPath;
     }
 
     public String getName() {
@@ -21,5 +23,9 @@ public class StylePreset {
 
     public int getColor() {
         return color;
+    }
+
+    public String getFontPath() {
+        return fontPath;
     }
 }
